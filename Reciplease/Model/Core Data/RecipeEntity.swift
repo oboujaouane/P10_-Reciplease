@@ -23,6 +23,14 @@ class RecipeEntity: NSManagedObject {
         saveContext()
     }
 
+    static var all: [RecipeEntity] {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        guard let recipes = try? AppDelegate.viewContext.fetch(request) else {
+            return []
+        }
+        return recipes
+    }
+
     static func saveContext() {
             try? AppDelegate.viewContext.save()
     }
