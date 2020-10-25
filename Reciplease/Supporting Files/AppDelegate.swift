@@ -30,4 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+
+    static var persistentContainer: NSPersistentContainer {
+        // swiftlint:disable force_cast
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    }
+    
+    static var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
 }

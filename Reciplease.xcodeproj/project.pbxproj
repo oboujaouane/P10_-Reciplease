@@ -15,6 +15,9 @@
 		240BC365254565820035CEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240BC364254565820035CEFD /* Assets.xcassets */; };
 		240BC368254565820035CEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240BC366254565820035CEFD /* LaunchScreen.storyboard */; };
 		240BC373254565820035CEFD /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC372254565820035CEFD /* RecipleaseTests.swift */; };
+		240DD00225458DF700567208 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD00125458DF700567208 /* Recipe.swift */; };
+		240DD0042545916E00567208 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD0032545916E00567208 /* APIKey.swift */; };
+		240DD0062545A33A00567208 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD0052545A33A00567208 /* Recipes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,9 @@
 		240BC36E254565820035CEFD /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		240BC372254565820035CEFD /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		240BC374254565820035CEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		240DD00125458DF700567208 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		240DD0032545916E00567208 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		240DD0052545A33A00567208 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		A792B9C6D07EBCFE627BAE5A /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		AED23BDC8A4F1115CE513F0A /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		C79AE754EDB15D583CCBD643 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +112,7 @@
 		240BC37D254565CE0035CEFD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				240DD0032545916E00567208 /* APIKey.swift */,
 				240BC358254565810035CEFD /* AppDelegate.swift */,
 				240BC364254565820035CEFD /* Assets.xcassets */,
 				240BC369254565820035CEFD /* Info.plist */,
@@ -126,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				240BC361254565810035CEFD /* Reciplease.xcdatamodeld */,
+				240DD00125458DF700567208 /* Recipe.swift */,
+				240DD0052545A33A00567208 /* Recipes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,8 +335,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				240BC363254565810035CEFD /* Reciplease.xcdatamodeld in Sources */,
+				240DD0062545A33A00567208 /* Recipes.swift in Sources */,
+				240DD0042545916E00567208 /* APIKey.swift in Sources */,
 				240BC35D254565810035CEFD /* ViewController.swift in Sources */,
 				240BC359254565810035CEFD /* AppDelegate.swift in Sources */,
+				240DD00225458DF700567208 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
