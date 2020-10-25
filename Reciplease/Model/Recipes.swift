@@ -1,8 +1,9 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let recipes = try? newJSONDecoder().decode(Recipes.self, from: jsonData)
+// let recipes = try? newJSONDecoder().decode(Recipes.self, from: jsonData)
 
+// swiftlint:disable identifier_name
 // MARK: - Recipes
 struct Recipes: Codable {
     let query: String
@@ -60,13 +61,6 @@ enum HealthLabel: String, Codable {
     case peanutFree = "Peanut-Free"
     case sugarConscious = "Sugar-Conscious"
     case treeNutFree = "Tree-Nut-Free"
-}
-
-// MARK: - Ingredient
-struct Ingredient: Codable {
-    let text: String
-    let weight: Double
-    let image: String?
 }
 
 // MARK: - Total

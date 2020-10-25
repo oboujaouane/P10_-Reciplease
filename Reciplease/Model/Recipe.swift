@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sajid. All rights reserved.
 //
 
-// MARK: - Recipe
 struct Recipe: Codable {
     let uri: String
     let label: String
