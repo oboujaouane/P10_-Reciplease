@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    // MARK: - Property
+    var recipes = RecipeEntity.all
+    
+    // MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recipes = RecipeEntity.all
+        //tableView.reloadData()
     }
 
 }
