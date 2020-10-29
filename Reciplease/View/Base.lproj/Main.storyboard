@@ -102,7 +102,7 @@
         <!--Reciplease-->
         <scene sceneID="l27-fo-LRh">
             <objects>
-                <viewController id="SRR-rw-dve" sceneMemberID="viewController">
+                <viewController id="SRR-rw-dve" customClass="SearchViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Os-PJ-ngC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,6 +203,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchRecipes" destination="SRR-rw-dve" eventType="touchUpInside" id="Oyo-MO-X80"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

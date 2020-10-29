@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		0C4D39745B474792B3B609B9 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79AE754EDB15D583CCBD643 /* Pods_Reciplease.framework */; };
 		240BC359254565810035CEFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC358254565810035CEFD /* AppDelegate.swift */; };
-		240BC35D254565810035CEFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC35C254565810035CEFD /* ViewController.swift */; };
+		240BC35D254565810035CEFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC35C254565810035CEFD /* SearchViewController.swift */; };
 		240BC360254565810035CEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240BC35E254565810035CEFD /* Main.storyboard */; };
 		240BC363254565810035CEFD /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 240BC361254565810035CEFD /* Reciplease.xcdatamodeld */; };
 		240BC365254565820035CEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240BC364254565820035CEFD /* Assets.xcassets */; };
 		240BC368254565820035CEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240BC366254565820035CEFD /* LaunchScreen.storyboard */; };
 		240BC373254565820035CEFD /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC372254565820035CEFD /* RecipleaseTests.swift */; };
+		240BD501254AB33900667E86 /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BD500254AB33900667E86 /* EdamamService.swift */; };
+		240BD503254AB38900667E86 /* ServiceURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BD502254AB38900667E86 /* ServiceURL.swift */; };
+		240BD505254AB63F00667E86 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BD504254AB63F00667E86 /* RecipesListViewController.swift */; };
+		240BD508254AB80900667E86 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BD507254AB80900667E86 /* UIViewController+Extensions.swift */; };
 		240DD00225458DF700567208 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD00125458DF700567208 /* Recipe.swift */; };
 		240DD0042545916E00567208 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD0032545916E00567208 /* APIKey.swift */; };
 		240DD0062545A33A00567208 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD0052545A33A00567208 /* Recipes.swift */; };
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		240BC355254565810035CEFD /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240BC358254565810035CEFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		240BC35C254565810035CEFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		240BC35C254565810035CEFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		240BC35F254565810035CEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		240BC362254565810035CEFD /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		240BC364254565820035CEFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +49,10 @@
 		240BC36E254565820035CEFD /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		240BC372254565820035CEFD /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		240BC374254565820035CEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		240BD500254AB33900667E86 /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
+		240BD502254AB38900667E86 /* ServiceURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceURL.swift; sourceTree = "<group>"; };
+		240BD504254AB63F00667E86 /* RecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewController.swift; sourceTree = "<group>"; };
+		240BD507254AB80900667E86 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		240DD00125458DF700567208 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		240DD0032545916E00567208 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		240DD0052545A33A00567208 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 		240BC357254565810035CEFD /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				240BD506254AB7A700667E86 /* Extensions */,
 				240BC37D254565CE0035CEFD /* Supporting Files */,
 				240BC37F254565E60035CEFD /* Model */,
 				240BC37E254565DC0035CEFD /* View */,
@@ -139,10 +148,12 @@
 		240BC37F254565E60035CEFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				240DD00D2545ACED00567208 /* Core Data */,
 				240DD0072545A58100567208 /* Ingredient.swift */,
 				240DD00125458DF700567208 /* Recipe.swift */,
 				240DD0052545A33A00567208 /* Recipes.swift */,
-				240DD00D2545ACED00567208 /* Core Data */,
+				240BD500254AB33900667E86 /* EdamamService.swift */,
+				240BD502254AB38900667E86 /* ServiceURL.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,9 +161,18 @@
 		240BC380254565F10035CEFD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				240BC35C254565810035CEFD /* ViewController.swift */,
+				240BC35C254565810035CEFD /* SearchViewController.swift */,
+				240BD504254AB63F00667E86 /* RecipesListViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		240BD506254AB7A700667E86 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				240BD507254AB80900667E86 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		240DD00D2545ACED00567208 /* Core Data */ = {
@@ -355,10 +375,14 @@
 				240BC363254565810035CEFD /* Reciplease.xcdatamodeld in Sources */,
 				240DD0062545A33A00567208 /* Recipes.swift in Sources */,
 				240DD00C2545ACE600567208 /* RecipeEntity.swift in Sources */,
+				240BD503254AB38900667E86 /* ServiceURL.swift in Sources */,
+				240BD508254AB80900667E86 /* UIViewController+Extensions.swift in Sources */,
 				240DD0082545A58100567208 /* Ingredient.swift in Sources */,
 				240DD0042545916E00567208 /* APIKey.swift in Sources */,
-				240BC35D254565810035CEFD /* ViewController.swift in Sources */,
+				240BD501254AB33900667E86 /* EdamamService.swift in Sources */,
+				240BC35D254565810035CEFD /* SearchViewController.swift in Sources */,
 				240BC359254565810035CEFD /* AppDelegate.swift in Sources */,
+				240BD505254AB63F00667E86 /* RecipesListViewController.swift in Sources */,
 				240DD00225458DF700567208 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
