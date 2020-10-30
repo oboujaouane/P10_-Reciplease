@@ -25,6 +25,7 @@
 		240DD0082545A58100567208 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD0072545A58100567208 /* Ingredient.swift */; };
 		240DD00A2545A70900567208 /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 240DD0092545A70900567208 /* Recipes.json */; };
 		240DD00C2545ACE600567208 /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DD00B2545ACE600567208 /* RecipeEntity.swift */; };
+		248C3BC8254B1A4000C0F1F4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C3BC7254B1A4000C0F1F4 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		240DD0072545A58100567208 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		240DD0092545A70900567208 /* Recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
 		240DD00B2545ACE600567208 /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
+		248C3BC7254B1A4000C0F1F4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A792B9C6D07EBCFE627BAE5A /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		AED23BDC8A4F1115CE513F0A /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		C79AE754EDB15D583CCBD643 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				240BD507254AB80900667E86 /* UIViewController+Extensions.swift */,
+				248C3BC7254B1A4000C0F1F4 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -351,14 +354,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				240BC363254565810035CEFD /* Reciplease.xcdatamodeld in Sources */,
+				248C3BC8254B1A4000C0F1F4 /* String+Extensions.swift in Sources */,
 				240DD0062545A33A00567208 /* Recipes.swift in Sources */,
 				240DD00C2545ACE600567208 /* RecipeEntity.swift in Sources */,
 				240BD503254AB38900667E86 /* ServiceURL.swift in Sources */,

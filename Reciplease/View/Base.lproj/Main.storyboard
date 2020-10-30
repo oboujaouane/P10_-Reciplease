@@ -126,6 +126,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="192" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="yes" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="SRR-rw-dve" id="Es4-FE-K16"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH9-Hd-azu">
                                                         <rect key="frame" x="200" y="0.0" width="80" height="40"/>
@@ -143,6 +146,9 @@
                                                                 <integer key="value" value="4"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="addIngredient" destination="SRR-rw-dve" eventType="touchUpInside" id="Y8V-QW-nrC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -155,6 +161,13 @@
                                     <constraint firstAttribute="bottom" secondItem="vdV-e6-yrm" secondAttribute="bottom" constant="8" id="ZfO-lL-d8z"/>
                                     <constraint firstItem="vdV-e6-yrm" firstAttribute="leading" secondItem="3h8-oU-5dI" secondAttribute="leading" constant="20" id="uao-uT-bEr"/>
                                     <constraint firstAttribute="trailing" secondItem="vdV-e6-yrm" secondAttribute="trailing" constant="20" id="xSI-ab-MzQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-1F-5Jz" userLabel="Underline View">
+                                <rect key="frame" x="20" y="121" width="182" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="NaU-dH-yQ3"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Your ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhr-mk-33Z">
@@ -178,6 +191,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clearList" destination="SRR-rw-dve" eventType="touchUpInside" id="5sA-VE-xBK"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fds-br-0KI">
                                 <rect key="frame" x="20" y="187" width="280" height="268"/>
@@ -188,6 +204,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-JX-luZ">
+                                <rect key="frame" x="141.5" y="464.5" width="37" height="37"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-Vi-zrX">
                                 <rect key="frame" x="20" y="463" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -211,18 +232,24 @@
                         <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iBF-Om-zNW" firstAttribute="trailing" secondItem="60G-aU-sGT" secondAttribute="trailing" constant="20" id="6o0-Pc-DyL"/>
+                            <constraint firstItem="7CY-1F-5Jz" firstAttribute="leading" secondItem="2oN-Nf-GoN" secondAttribute="leading" id="DZn-PH-2Bo"/>
+                            <constraint firstItem="7CY-1F-5Jz" firstAttribute="trailing" secondItem="2oN-Nf-GoN" secondAttribute="trailing" constant="-10" id="GTO-sT-GeE"/>
                             <constraint firstItem="xPa-Vi-zrX" firstAttribute="top" secondItem="fds-br-0KI" secondAttribute="bottom" constant="8" id="GeU-rt-otN"/>
                             <constraint firstItem="iBF-Om-zNW" firstAttribute="trailing" secondItem="xPa-Vi-zrX" secondAttribute="trailing" constant="20" id="HKW-Wm-LQD"/>
                             <constraint firstItem="xPa-Vi-zrX" firstAttribute="leading" secondItem="iBF-Om-zNW" secondAttribute="leading" constant="20" id="LvA-qp-obr"/>
                             <constraint firstItem="Vhr-mk-33Z" firstAttribute="centerY" secondItem="60G-aU-sGT" secondAttribute="centerY" id="NzV-Io-xU9"/>
                             <constraint firstItem="fds-br-0KI" firstAttribute="top" secondItem="60G-aU-sGT" secondAttribute="bottom" constant="8" id="OKk-5H-L8U"/>
+                            <constraint firstItem="fds-br-0KI" firstAttribute="leading" secondItem="2oN-Nf-GoN" secondAttribute="leading" id="Pk5-FV-tCs"/>
                             <constraint firstItem="3h8-oU-5dI" firstAttribute="leading" secondItem="iBF-Om-zNW" secondAttribute="leading" id="UD5-M6-3E6"/>
                             <constraint firstItem="3h8-oU-5dI" firstAttribute="top" secondItem="iBF-Om-zNW" secondAttribute="top" id="Vk7-ph-8Kj"/>
                             <constraint firstItem="60G-aU-sGT" firstAttribute="top" secondItem="3h8-oU-5dI" secondAttribute="bottom" constant="16" id="YPl-9Q-ud3"/>
                             <constraint firstItem="iBF-Om-zNW" firstAttribute="bottom" secondItem="xPa-Vi-zrX" secondAttribute="bottom" constant="16" id="bRv-fS-ZKr"/>
+                            <constraint firstItem="Q5X-JX-luZ" firstAttribute="centerX" secondItem="iBF-Om-zNW" secondAttribute="centerX" id="bwg-nh-X22"/>
                             <constraint firstItem="3h8-oU-5dI" firstAttribute="trailing" secondItem="iBF-Om-zNW" secondAttribute="trailing" id="dIV-SZ-mIS"/>
                             <constraint firstItem="Vhr-mk-33Z" firstAttribute="leading" secondItem="iBF-Om-zNW" secondAttribute="leading" constant="20" id="fCx-hl-Aus"/>
+                            <constraint firstItem="7CY-1F-5Jz" firstAttribute="top" secondItem="2oN-Nf-GoN" secondAttribute="bottom" id="fI3-jD-jDX"/>
                             <constraint firstItem="60G-aU-sGT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vhr-mk-33Z" secondAttribute="trailing" constant="8" id="fjh-Yd-bbU"/>
+                            <constraint firstItem="Q5X-JX-luZ" firstAttribute="centerY" secondItem="xPa-Vi-zrX" secondAttribute="centerY" id="lDu-jp-whx"/>
                             <constraint firstItem="iBF-Om-zNW" firstAttribute="trailing" secondItem="fds-br-0KI" secondAttribute="trailing" constant="20" id="p8w-Ib-RzN"/>
                             <constraint firstItem="3h8-oU-5dI" firstAttribute="height" secondItem="8Os-PJ-ngC" secondAttribute="height" multiplier="0.15" id="w0e-Ag-naw"/>
                             <constraint firstItem="fds-br-0KI" firstAttribute="leading" secondItem="iBF-Om-zNW" secondAttribute="leading" constant="20" id="xjG-Tq-xLK"/>
@@ -230,10 +257,33 @@
                         <viewLayoutGuide key="safeArea" id="iBF-Om-zNW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="iDY-aK-Xvr"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Q5X-JX-luZ" id="8Ig-02-VGt"/>
+                        <outlet property="ingredientTextField" destination="2oN-Nf-GoN" id="WNS-Tu-Ch3"/>
+                        <outlet property="ingredientTextView" destination="fds-br-0KI" id="2Lh-0X-T5S"/>
+                        <outlet property="validateButton" destination="xPa-Vi-zrX" id="Hvf-Sc-UHq"/>
+                        <segue destination="nZg-q4-mbd" kind="show" identifier="segueToRecipes" id="oaG-fo-8AL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvP-5A-Y8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.75" y="-690.84507042253517"/>
+            <point key="canvasLocation" x="806" y="-692"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="e0a-1W-Nnm">
+            <objects>
+                <viewController id="nZg-q4-mbd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xal-lY-YD9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="UEo-P0-hFB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vnW-2X-Q5q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNB-l2-Iob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="-691"/>
         </scene>
     </scenes>
 </document>

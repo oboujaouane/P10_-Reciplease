@@ -1,7 +1,7 @@
 // swiftlint:disable identifier_name
 // MARK: - Recipes
 struct Recipes: Codable {
-    let query: String = "q"
+    let q: String
     let from, to: Int
     let more: Bool
     let count: Int
@@ -12,11 +12,6 @@ struct Recipes: Codable {
 struct Hit: Codable {
     let recipe: Recipe
     let bookmarked, bought: Bool
-}
-
-enum Caution: String, Codable {
-    case fodmap = "FODMAP"
-    case sulfites = "Sulfites"
 }
 
 // MARK: - Digest

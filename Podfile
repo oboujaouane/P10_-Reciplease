@@ -9,6 +9,5 @@ inhibit_all_warnings!
 
 target 'Reciplease' do
   pod 'Alamofire', '~> 5.2'
-  pod 'SVProgressHUD'
   pod 'SwiftLint'
 end

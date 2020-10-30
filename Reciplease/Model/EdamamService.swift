@@ -15,8 +15,10 @@ class EdamamService {
     private init() {}
     
     func getRecipes(for ingredients: [String], callback: @escaping (Bool, Recipes?) -> Void) {
-        let ingredientsParameter = ["q": ingredients.joined(separator: ",")]
-        AF.request(Edamam.url, method: .get, parameters: ingredientsParameter).validate().responseJSON { response in
+        let ingredientsParameter = ["app_key": APIKey.EdamamRecipeSearchAppKey,
+                                    "app_id": APIKey.EdamamRecipeSearchAppID,
+                                    "q": ingredients.joined(separator: ",")]
+        AF.request(Edamam.endpoint, method: .get, parameters: ingredientsParameter).validate().responseJSON { response in
             guard let data = response.data, response.error == nil else {
                 callback(false, nil)
                 return

@@ -16,7 +16,7 @@ struct Recipe: Codable {
     let yield: Int
     let dietLabels: [String]
     let healthLabels: [HealthLabel]
-    let cautions: [Caution]
+    let cautions: [String]
     let ingredientLines: [String]
     let ingredients: [Ingredient]
     let calories, totalWeight: Double
