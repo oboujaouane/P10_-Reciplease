@@ -24,12 +24,12 @@ class RecipesListViewController: UIViewController {
         setupTableView()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//         if segue.identifier == segueIdentifier {
-//             let detailRecipeVC = segue.destination as! DetailRecipeViewController
-//             detailRecipeVC.recipe = selectedRecipe
-//         }
-//     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == segueIdentifier {
+             let recipeDetailVC = segue.destination as! RecipeDetailTableViewController
+             recipeDetailVC.recipe = selectedRecipe
+         }
+     }
     
     // MARK: - Function
     private func setupTableView() {
