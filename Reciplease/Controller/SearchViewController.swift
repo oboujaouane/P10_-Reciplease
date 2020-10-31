@@ -25,10 +25,6 @@ class SearchViewController: UIViewController {
         addIngredientToList()
     }
     
-    //    @IBAction func dismissKeyboard(_ sender: Any) {
-    //        addIngredientTextField.resignFirstResponder()
-    //    }
-    
     @IBAction func clearList() {
         ingredientsList.removeAll()
         ingredientTextView.text.removeAll()
@@ -49,8 +45,8 @@ class SearchViewController: UIViewController {
                             self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                         } else {
                             self.presentAlert(title: "Aucune recette",
-                                         message: "Désolé mais aucune recette n'a été trouvée avec votre liste d'ingrédients.",
-                                         buttonTitle: "OK")
+                                              message: "Désolé mais aucune recette n'a été trouvée avec votre liste d'ingrédients.",
+                                              buttonTitle: "OK")
                         }
                     } else {
                         self.presentAlert(title: "Petit problème lors de la récupération des recettes",
@@ -63,8 +59,8 @@ class SearchViewController: UIViewController {
         } else {
             loader(shown: false)
             presentAlert(title: "Liste d'ingrédients vide",
-                              message: "Veuillez ajouter au moins un ingrédient à la liste.",
-                              buttonTitle: "OK")
+                         message: "Veuillez ajouter au moins un ingrédient à la liste.",
+                         buttonTitle: "OK")
         }
     }
     
@@ -105,7 +101,7 @@ class SearchViewController: UIViewController {
     private func add(ingredient: String) {
         ingredientsList.append(ingredient)
     }
-
+    
     private func addIngredientToList() {
         if let ingredientName = ingredientTextField.text?.trimmingCharacters(
             in: .whitespacesAndNewlines).trimmingCharacters(
@@ -121,23 +117,10 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITextFieldDelegate {
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //        if textField == firstnameTextField {
-    //            textField.resignFirstResponder()
-    //            lastnameTextField.becomeFirstResponder()
-    //        } else if textField == lastnameTextField {
-    //            textField.resignFirstResponder()
-    //        }
-    //        oneOfMandatoryTextFieldsIsEmptyOrBothNotChanged()
-    //        return true
-    //    }
-    //
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        oneOfMandatoryTextFieldsIsEmptyOrBothNotChanged()
-    //    }
-    //
-    //    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    //        oneOfMandatoryTextFieldsIsEmptyOrBothNotChanged()
-    //        return true
-    //    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addIngredientToList()
+        ingredientTextView.scrollToBottom()
+        textField.resignFirstResponder()
+        return true
+    }
 }

@@ -14,10 +14,12 @@ class EdamamService {
     static var shared = EdamamService()
     private init() {}
     
+    // MARK: - Internal functions
     func getRecipes(for ingredients: [String], callback: @escaping (Bool, Recipes?) -> Void) {
         let ingredientsParameter = ["app_key": APIKey.EdamamRecipeSearchAppKey,
                                     "app_id": APIKey.EdamamRecipeSearchAppID,
                                     "q": ingredients.joined(separator: ",")]
+        
         AF.request(Edamam.endpoint, method: .get, parameters: ingredientsParameter).validate().responseJSON { response in
             guard let data = response.data, response.error == nil else {
                 callback(false, nil)

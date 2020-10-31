@@ -7,7 +7,15 @@ use_frameworks!
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-target 'Reciplease' do
+def app_pods
   pod 'Alamofire', '~> 5.2'
-  pod 'SwiftLint'
+end
+
+target 'Reciplease' do
+  app_pods
+end
+
+
+target 'RecipleaseTests' do
+  app_pods
 end
