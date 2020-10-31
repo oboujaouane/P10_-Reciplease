@@ -258,7 +258,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iBF-Om-zNW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="iDY-aK-Xvr"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="iDY-aK-Xvr">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="9SV-gT-SuG"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Q5X-JX-luZ" id="8Ig-02-VGt"/>
                         <outlet property="ingredientTextField" destination="2oN-Nf-GoN" id="WNS-Tu-Ch3"/>
@@ -271,21 +273,40 @@
             </objects>
             <point key="canvasLocation" x="806" y="-692"/>
         </scene>
-        <!--View Controller-->
+        <!--Reciplease-->
         <scene sceneID="e0a-1W-Nnm">
             <objects>
-                <viewController id="nZg-q4-mbd" sceneMemberID="viewController">
+                <viewController id="nZg-q4-mbd" customClass="RecipesListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xal-lY-YD9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QXk-vY-nV5">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nZg-q4-mbd" id="KJO-Nk-nLa"/>
+                                    <outlet property="delegate" destination="nZg-q4-mbd" id="4uf-SI-lU8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QXk-vY-nV5" firstAttribute="top" secondItem="UEo-P0-hFB" secondAttribute="top" id="2gb-ZU-2Ly"/>
+                            <constraint firstItem="QXk-vY-nV5" firstAttribute="trailing" secondItem="UEo-P0-hFB" secondAttribute="trailing" id="M6N-eR-oZ2"/>
+                            <constraint firstItem="QXk-vY-nV5" firstAttribute="leading" secondItem="UEo-P0-hFB" secondAttribute="leading" id="aQy-9I-rfo"/>
+                            <constraint firstItem="QXk-vY-nV5" firstAttribute="bottom" secondItem="UEo-P0-hFB" secondAttribute="bottom" id="z4H-q5-Bb2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UEo-P0-hFB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vnW-2X-Q5q"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="vnW-2X-Q5q"/>
+                    <connections>
+                        <outlet property="recipesTableView" destination="QXk-vY-nV5" id="cle-NF-oGC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNB-l2-Iob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="-691"/>
+            <point key="canvasLocation" x="1597.5" y="-691.90140845070425"/>
         </scene>
     </scenes>
 </document>

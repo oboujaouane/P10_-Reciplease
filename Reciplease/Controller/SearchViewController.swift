@@ -73,7 +73,7 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
             if let recipesListVC = segue.destination as? RecipesListViewController {
-                recipesListVC.recipes = recipes
+                recipesListVC.hits = recipes?.hits
             }
         }
     }

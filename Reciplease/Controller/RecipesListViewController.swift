@@ -9,17 +9,61 @@
 import UIKit
 
 class RecipesListViewController: UIViewController {
-    // MARK: - Property
+    // MARK: - Outlet
+    @IBOutlet private weak var recipesTableView: UITableView!
+
+    // MARK: - Properties
     // var recipes = RecipeEntity.all
-    var recipes: Recipes?
+    private var selectedRecipe: Recipe?
+    var hits: [Hit]?
+    private let segueIdentifier = "segueToRecipeDetail"
     
     // MARK: - Life cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //recipes = RecipeEntity.all
-        //tableView.reloadData()
-        guard let recipes = recipes else { return }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//         if segue.identifier == segueIdentifier {
+//             let detailRecipeVC = segue.destination as! DetailRecipeViewController
+//             detailRecipeVC.recipe = selectedRecipe
+//         }
+//     }
+    
+    // MARK: - Function
+    private func setupTableView() {
+        recipesTableView.rowHeight = 200
+        recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),
+                                  forCellReuseIdentifier: "RecipeTableViewCellIdentifier")
+    }
+}
+
+
+// MARK: - Extension allowing to congigure table view and cells details
+extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        hits?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let recipCell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCellIdentifier",
+                                                            for: indexPath) as? RecipeTableViewCell else {
+            return UITableViewCell()
+        }
         
-        print(recipes.count)
+        guard let hits = hits else {
+            return UITableViewCell()
+        }
+        
+        recipCell.imageForCell(recipeUrl: (hits[indexPath.row].recipe.image))
+        recipCell.configure(recipe: hits[indexPath.row].recipe)
+        
+        return recipCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRecipe = hits?[indexPath.row].recipe
+        self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }
