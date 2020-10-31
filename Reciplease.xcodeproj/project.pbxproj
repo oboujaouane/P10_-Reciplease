@@ -28,8 +28,8 @@
 		24A612E0254D45D100B1590B /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A612DF254D45D100B1590B /* UITextView+Extensions.swift */; };
 		24A612E3254D47A300B1590B /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A612E2254D47A300B1590B /* RecipeTableViewCell.swift */; };
 		24A612E5254D4ADE00B1590B /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A612E4254D4ADE00B1590B /* RecipeTableViewCell.xib */; };
-		24A612E7254D57C700B1590B /* RecipeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A612E6254D57C700B1590B /* RecipeDetailTableViewController.swift */; };
-		24A612E9254D5AD500B1590B /* RecipeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A612E8254D5AD500B1590B /* RecipeDetailTableViewCell.xib */; };
+		24A612E7254D57C700B1590B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A612E6254D57C700B1590B /* RecipeDetailViewController.swift */; };
+		24A612EC254DBA1A00B1590B /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A612EB254DBA1A00B1590B /* IngredientsTableViewCell.swift */; };
 		24DA5036254C7CEE0072A172 /* EdamamServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA5035254C7CEE0072A172 /* EdamamServiceTestCase.swift */; };
 		24DA5039254C7DC20072A172 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA5038254C7DC20072A172 /* MockedData.swift */; };
 		9B929F6C8C12A358E21F19CB /* Pods_RecipleaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118CB6CDFC8F9201F2923FE8 /* Pods_RecipleaseTests.framework */; };
@@ -71,8 +71,8 @@
 		24A612DF254D45D100B1590B /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		24A612E2254D47A300B1590B /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		24A612E4254D4ADE00B1590B /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
-		24A612E6254D57C700B1590B /* RecipeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailTableViewController.swift; sourceTree = "<group>"; };
-		24A612E8254D5AD500B1590B /* RecipeDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDetailTableViewCell.xib; sourceTree = "<group>"; };
+		24A612E6254D57C700B1590B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		24A612EB254DBA1A00B1590B /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		24DA5035254C7CEE0072A172 /* EdamamServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamServiceTestCase.swift; sourceTree = "<group>"; };
 		24DA5038254C7DC20072A172 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		5CE7CB5F15C5AED546FF8135 /* Pods-RecipleaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 			children = (
 				240BC35C254565810035CEFD /* SearchViewController.swift */,
 				240BD504254AB63F00667E86 /* RecipesListViewController.swift */,
-				24A612E6254D57C700B1590B /* RecipeDetailTableViewController.swift */,
+				24A612E6254D57C700B1590B /* RecipeDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 		24A612EA254D5AEE00B1590B /* RecipeDetailCell */ = {
 			isa = PBXGroup;
 			children = (
-				24A612E8254D5AD500B1590B /* RecipeDetailTableViewCell.xib */,
+				24A612EB254DBA1A00B1590B /* IngredientsTableViewCell.swift */,
 			);
 			path = RecipeDetailCell;
 			sourceTree = "<group>";
@@ -340,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				240BC368254565820035CEFD /* LaunchScreen.storyboard in Resources */,
-				24A612E9254D5AD500B1590B /* RecipeDetailTableViewCell.xib in Resources */,
 				240BC365254565820035CEFD /* Assets.xcassets in Resources */,
 				240BC360254565810035CEFD /* Main.storyboard in Resources */,
 				24A612E5254D4ADE00B1590B /* RecipeTableViewCell.xib in Resources */,
@@ -463,11 +462,12 @@
 				240BD508254AB80900667E86 /* UIViewController+Extensions.swift in Sources */,
 				240DD0082545A58100567208 /* Ingredient.swift in Sources */,
 				240DD0042545916E00567208 /* APIKey.swift in Sources */,
-				24A612E7254D57C700B1590B /* RecipeDetailTableViewController.swift in Sources */,
+				24A612E7254D57C700B1590B /* RecipeDetailViewController.swift in Sources */,
 				240BD501254AB33900667E86 /* EdamamService.swift in Sources */,
 				240BC35D254565810035CEFD /* SearchViewController.swift in Sources */,
 				240BC359254565810035CEFD /* AppDelegate.swift in Sources */,
 				240BD505254AB63F00667E86 /* RecipesListViewController.swift in Sources */,
+				24A612EC254DBA1A00B1590B /* IngredientsTableViewCell.swift in Sources */,
 				240DD00225458DF700567208 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,11 @@ import UIKit
 class RecipesListViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet private weak var recipesTableView: UITableView!
-
+    
     // MARK: - Properties
     // var recipes = RecipeEntity.all
     private var selectedRecipe: Recipe?
+    private var selectedRecipeImage: UIImage?
     var hits: [Hit]?
     private let segueIdentifier = "segueToRecipeDetail"
     
@@ -25,11 +26,16 @@ class RecipesListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == segueIdentifier {
-             let recipeDetailVC = segue.destination as! RecipeDetailTableViewController
-             recipeDetailVC.recipe = selectedRecipe
-         }
-     }
+        if segue.identifier == segueIdentifier {
+            let recipeDetailVC = segue.destination as! RecipeDetailViewController
+            recipeDetailVC.recipe = selectedRecipe
+            recipeDetailVC.recipeImage = selectedRecipeImage
+        }
+    }
+    
+    deinit {
+        print("RecipesListViewController deinit called")
+    }
     
     // MARK: - Function
     private func setupTableView() {
@@ -47,23 +53,24 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let recipCell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCellIdentifier",
+        guard let recipeCell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCellIdentifier",
                                                             for: indexPath) as? RecipeTableViewCell else {
-            return UITableViewCell()
+                                                                return UITableViewCell()
         }
         
         guard let hits = hits else {
             return UITableViewCell()
         }
         
-        recipCell.imageForCell(recipeUrl: (hits[indexPath.row].recipe.image))
-        recipCell.configure(recipe: hits[indexPath.row].recipe)
+        recipeCell.imageForCell(recipeUrl: (hits[indexPath.row].recipe.image))
+        recipeCell.configure(recipe: hits[indexPath.row].recipe)
         
-        return recipCell
+        return recipeCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRecipe = hits?[indexPath.row].recipe
+        selectedRecipeImage = (tableView.cellForRow(at: indexPath) as! RecipeTableViewCell).backgroundImageView.image
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }

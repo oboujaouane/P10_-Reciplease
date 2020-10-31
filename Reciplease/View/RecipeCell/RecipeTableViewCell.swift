@@ -14,7 +14,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet private weak var ingredientsLabel: UILabel!
     @IBOutlet private weak var servingsLabel: UILabel!
     @IBOutlet private weak var totalTimeLabel: UILabel!
-    @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     /// Allow to display information in cells
     func configure(recipe: Recipe) {

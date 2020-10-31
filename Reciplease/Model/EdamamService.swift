@@ -40,7 +40,6 @@ class EdamamService {
         }
     }
 
-    // TODO: Call it and finalise
     func getImage(url: String, callback: @escaping ((UIImage?) -> Void)) {
         AF.download(url).responseData { response in
             if let data = response.value {
