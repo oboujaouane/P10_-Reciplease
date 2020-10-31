@@ -17,7 +17,6 @@ class RecipeEntity: NSManagedObject {
             recipeEntity.ingredient_lines! += "\(ingredient) " // TODO: remove exclamation
         }
         recipeEntity.name = recipe.label
-        recipeEntity.original_url = recipe.url
         recipeEntity.preparation_time = Int16(recipe.totalTime)
         recipeEntity.yield = Int16(recipe.yield)
         saveContext()

@@ -75,6 +75,9 @@
                         <viewLayoutGuide key="safeArea" id="31B-jZ-lYe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="WrP-C3-4Vw"/>
+                    <connections>
+                        <segue destination="ziz-1G-tDH" kind="show" id="uf6-z7-kr3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mE2-vz-dF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -496,9 +499,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efT-5O-BUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2424.375" y="-690.84507042253517"/>
+            <point key="canvasLocation" x="2595" y="-200"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uf6-z7-kr3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="favorite_star" width="24" height="23"/>
         <image name="gradient" width="636" height="833"/>
