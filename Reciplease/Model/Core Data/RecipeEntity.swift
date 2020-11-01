@@ -48,7 +48,7 @@ class RecipeEntity: NSManagedObject {
     }
     
     /// Save recipe in Core Data
-     static func addRecipeToFavorite(recipe: Recipe) {
+     static func addRecipeToFavorite(_ recipe: Recipe) {
             let favoriteRecipe = RecipeEntity(context: AppDelegate.viewContext)
             favoriteRecipe.name = recipe.label
             favoriteRecipe.preparation_time = Int16(recipe.totalTime)
@@ -60,7 +60,7 @@ class RecipeEntity: NSManagedObject {
     }
     
     /// Check if data already exists in Core Data comparing url
-    static func existBy(url: String) -> Bool {
+    static func existBy(_ url: String) -> Bool {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         request.predicate = NSPredicate(format: "image_url == %@", url)
         guard let count = try? AppDelegate.viewContext.count(for: request) else {
@@ -70,7 +70,7 @@ class RecipeEntity: NSManagedObject {
     }
 
     /// Delete RecipeEntity in Core Data. Use url in parameters to call the right data
-    static func deleteBy(url: String) {
+    static func deleteBy(_ url: String) {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         request.predicate = NSPredicate(format: "image_url == %@", url)
         if let favoriteRecipes = try? AppDelegate.viewContext.fetch(request) {

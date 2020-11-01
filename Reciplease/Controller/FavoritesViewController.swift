@@ -20,6 +20,11 @@ class FavoritesViewController: UIViewController {
     private let segueIdentifier = "segueToRecipeDetail"
     
     // MARK: - Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareView()
@@ -33,8 +38,10 @@ class FavoritesViewController: UIViewController {
         }
     }
     
-    // MARK: - Private function
+    // MARK: - Private functions
     private func prepareView() {
+        recipes = RecipeEntity.all()
+        favoritesRecipesTableView.reloadData()
         if recipes.count > 0 {
             noFavoritesRecipesLabel.isHidden = true
             favoritesRecipesTableView.isHidden = false
@@ -42,6 +49,12 @@ class FavoritesViewController: UIViewController {
             noFavoritesRecipesLabel.isHidden = false
             favoritesRecipesTableView.isHidden = true
         }
+    }
+    
+    private func setupTableView() {
+        favoritesRecipesTableView.rowHeight = 200
+        favoritesRecipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),
+                                  forCellReuseIdentifier: "RecipeTableViewCellIdentifier")
     }
 }
 

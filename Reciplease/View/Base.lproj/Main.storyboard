@@ -521,12 +521,16 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reciplease" id="Qhf-DC-pcg">
-                        <barButtonItem key="rightBarButtonItem" image="favorite_star" id="nwH-uv-zDT">
+                        <barButtonItem key="rightBarButtonItem" image="favorite_star_off" id="nwH-uv-zDT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addToFavorite" destination="OtG-gF-AbT" id="bkJ-ym-LtY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="nwH-uv-zDT" id="jxF-rR-CRX"/>
                         <outlet property="recipeImageView" destination="3uV-hT-Xzb" id="FN0-Xe-9tg"/>
                         <outlet property="servingsLabel" destination="TUI-tE-mXX" id="RUf-ER-l9T"/>
                         <outlet property="titleLabel" destination="euc-d7-bZW" id="OzT-i8-t5J"/>
@@ -539,10 +543,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l00-k5-T2b"/>
+        <segue reference="FmW-ey-id4"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="favorite_star" width="24" height="23"/>
+        <image name="favorite_star_off" width="24" height="24"/>
         <image name="gradient" width="636" height="833"/>
         <image name="recipe_placeholder" width="414" height="276"/>
     </resources>

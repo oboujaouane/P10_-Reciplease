@@ -9,13 +9,18 @@
 import UIKit
 
 class RecipeDetailViewController: UIViewController {
-    // MARK: - Outlet
+    // MARK: - Outlets
+    @IBOutlet private weak var favoriteButton: UIBarButtonItem!
     @IBOutlet private weak var recipeImageView: UIImageView!
     @IBOutlet private weak var servingsLabel: UILabel!
     @IBOutlet private weak var totalTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
     // MARK: - Action
+    @IBAction func addToFavorite() {
+        saveRecipe()
+    }
+    
     @IBAction func getDirectionsTouched() {
         guard let stringUrl = recipe?.url else { return }
         guard let url = URL(string: stringUrl) else { return }
@@ -40,6 +45,8 @@ class RecipeDetailViewController: UIViewController {
     private func prepareView() {
         guard let recipe = recipe else { return }
         
+        favoriteButtonSetup()
+        
         servingsLabel.text = "\(String(recipe.yield)) servings"
         let totalTime = minutesToHoursMinutes(minutes: recipe.totalTime)
         if totalTime.hours == 0 && totalTime.leftMinutes == 0 {
@@ -56,6 +63,27 @@ class RecipeDetailViewController: UIViewController {
         }
         titleLabel.text = recipe.label
         recipeImageView.image = recipeImage
+    }
+    
+    private func favoriteButtonSetup() {
+        if let url = recipe?.url, RecipeEntity.existBy(url) {
+            favoriteButton.image = #imageLiteral(resourceName: "favorite_star_on.png")
+        } else {
+            favoriteButton.image = #imageLiteral(resourceName: "favorite_star_off.png")
+        }
+    }
+    
+    /// Allow to save or delete recipe in favorite
+    private func saveRecipe() {
+        if let url = recipe?.url, let recipe = recipe {
+            if RecipeEntity.existBy(url) {
+                RecipeEntity.deleteBy(url)
+                favoriteButton.image = #imageLiteral(resourceName: "favorite_star_off.png")
+            } else {
+                RecipeEntity.addRecipeToFavorite(recipe)
+                favoriteButton.image = #imageLiteral(resourceName: "favorite_star_on.png")
+            }
+        }
     }
 }
 
