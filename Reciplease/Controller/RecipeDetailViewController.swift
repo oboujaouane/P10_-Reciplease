@@ -66,7 +66,7 @@ class RecipeDetailViewController: UIViewController {
     }
     
     private func favoriteButtonSetup() {
-        if let url = recipe?.url, RecipeEntity.existBy(url) {
+        if let imageUrl = recipe?.image, RecipeEntity.existBy(imageUrl) {
             favoriteButton.image = #imageLiteral(resourceName: "favorite_star_on.png")
         } else {
             favoriteButton.image = #imageLiteral(resourceName: "favorite_star_off.png")
@@ -75,9 +75,9 @@ class RecipeDetailViewController: UIViewController {
     
     /// Allow to save or delete recipe in favorite
     private func saveRecipe() {
-        if let url = recipe?.url, let recipe = recipe {
-            if RecipeEntity.existBy(url) {
-                RecipeEntity.deleteBy(url)
+        if let imageUrl = recipe?.image, let recipe = recipe {
+            if RecipeEntity.existBy(imageUrl) {
+                RecipeEntity.deleteBy(imageUrl)
                 favoriteButton.image = #imageLiteral(resourceName: "favorite_star_off.png")
             } else {
                 RecipeEntity.addRecipeToFavorite(recipe)

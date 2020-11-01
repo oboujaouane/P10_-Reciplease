@@ -10,18 +10,6 @@ import CoreData
 
 class RecipeEntity: NSManagedObject {
     
-    static func save(_ recipe: Recipe) {
-        let recipeEntity = RecipeEntity(context: AppDelegate.viewContext)
-        recipeEntity.image_url = recipe.image
-        for ingredient in recipe.ingredientLines {
-            recipeEntity.ingredient_lines! += "\(ingredient) " // TODO: remove exclamation
-        }
-        recipeEntity.name = recipe.label
-        recipeEntity.preparation_time = Int16(recipe.totalTime)
-        recipeEntity.yield = Int16(recipe.yield)
-        saveContext()
-    }
-    
     /// Retrieve all recipes stored in Core Data
     static func all() -> [Recipe] {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
@@ -46,7 +34,7 @@ class RecipeEntity: NSManagedObject {
         }
         return recipes
     }
-    
+          
     /// Save recipe in Core Data
      static func addRecipeToFavorite(_ recipe: Recipe) {
             let favoriteRecipe = RecipeEntity(context: AppDelegate.viewContext)
