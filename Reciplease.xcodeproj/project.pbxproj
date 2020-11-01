@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C4D39745B474792B3B609B9 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79AE754EDB15D583CCBD643 /* Pods_Reciplease.framework */; };
+		240B494D254F602400ADC8C6 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B494C254F602400ADC8C6 /* FakeResponseData.swift */; };
 		240BC359254565810035CEFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC358254565810035CEFD /* AppDelegate.swift */; };
 		240BC35D254565810035CEFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC35C254565810035CEFD /* SearchViewController.swift */; };
 		240BC360254565810035CEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240BC35E254565810035CEFD /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		118CB6CDFC8F9201F2923FE8 /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		240B494C254F602400ADC8C6 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		240BC355254565810035CEFD /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240BC358254565810035CEFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		240BC35C254565810035CEFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				240DD0092545A70900567208 /* EdamamRecipes.json */,
+				240B494C254F602400ADC8C6 /* FakeResponseData.swift */,
 				24DA5035254C7CEE0072A172 /* EdamamServiceTestCase.swift */,
 			);
 			path = Edamam;
@@ -482,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DA5036254C7CEE0072A172 /* EdamamServiceTestCase.swift in Sources */,
+				240B494D254F602400ADC8C6 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
