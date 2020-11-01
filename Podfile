@@ -7,15 +7,11 @@ use_frameworks!
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-def app_pods
+target 'Reciplease' do
   pod 'Alamofire', '~> 5.2'
 end
 
-target 'Reciplease' do
-  app_pods
-end
-
-
 target 'RecipleaseTests' do
-  app_pods
+  pod 'Alamofire', '~> 5.2'
+  pod 'Mockingjay', '3.0.0-alpha.1'
 end

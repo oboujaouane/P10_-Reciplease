@@ -8,8 +8,18 @@
 
 @testable import Reciplease
 import Alamofire
+import Mockingjay
 import XCTest
 
 class EdamamServiceTestCase: XCTestCase {
+    // MARK: - Property
+    var ingredients = ["chicken"]
     
+    func testGetDataShouldPostFailedCallbackIfError() {
+        stub(everything, http(404))
+        EdamamService.shared.getRecipes(for: ingredients, callback: { succes, recipes in
+            XCTAssertFalse(succes)
+            XCTAssertNil(recipes)
+        })
+    }
 }

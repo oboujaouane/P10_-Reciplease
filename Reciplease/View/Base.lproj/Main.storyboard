@@ -87,7 +87,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="31B-jZ-lYe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="WrP-C3-4Vw"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="WrP-C3-4Vw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="CPz-QK-kxB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoritesRecipesTableView" destination="7Lt-ER-WAk" id="px0-Hx-saO"/>
                         <outlet property="noFavoritesRecipesLabel" destination="nfS-nd-pL0" id="nob-M2-hE0"/>
