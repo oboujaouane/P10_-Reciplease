@@ -7,20 +7,11 @@
 //
 
 struct Recipe: Codable {
-    let uri: String
     let label: String
     let image: String
-    let source: String
     let url: String
-    let shareAs: String
     let yield: Int
-    let dietLabels: [String]
-    let healthLabels: [HealthLabel]
-    let cautions: [String]
     let ingredientLines: [String]
     let ingredients: [Ingredient]
-    let calories, totalWeight: Double
     let totalTime: Int
-    let totalNutrients, totalDaily: [String: Total]
-    let digest: [Digest]
 }

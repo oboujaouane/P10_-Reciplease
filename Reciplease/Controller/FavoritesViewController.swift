@@ -1,27 +1,28 @@
 //
-//  RecipesListViewController.swift
+//  FavoritesViewController.swift
 //  Reciplease
 //
-//  Created by ousama boujaouane on 29/10/2020.
+//  Created by ousama boujaouane on 01/11/2020.
 //  Copyright © 2020 Sajid. All rights reserved.
 //
 
 import UIKit
 
-class RecipesListViewController: UIViewController {
-    // MARK: - Outlet
-    @IBOutlet private weak var recipesTableView: UITableView!
-    
+class FavoritesViewController: UIViewController {
+    // MARK: - Outlets
+    @IBOutlet private weak var favoritesRecipesTableView: UITableView!
+    @IBOutlet private weak var noFavoritesRecipesLabel: UILabel!
+
     // MARK: - Properties
+    private var recipes = RecipeEntity.all()
     private var selectedRecipe: Recipe?
     private var selectedRecipeImage: UIImage?
-    var hits: [Hit]?
     private let segueIdentifier = "segueToRecipeDetail"
     
     // MARK: - Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupTableView()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,23 +33,22 @@ class RecipesListViewController: UIViewController {
         }
     }
     
-    deinit {
-        print("RecipesListViewController deinit called")
-    }
-    
-    // MARK: - Function
-    private func setupTableView() {
-        recipesTableView.rowHeight = 200
-        recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "RecipeTableViewCellIdentifier")
+    // MARK: - Private function
+    private func prepareView() {
+        if recipes.count > 0 {
+            noFavoritesRecipesLabel.isHidden = true
+            favoritesRecipesTableView.isHidden = false
+        } else {
+            noFavoritesRecipesLabel.isHidden = false
+            favoritesRecipesTableView.isHidden = true
+        }
     }
 }
 
-
 // MARK: - Extension allowing to congigure table view and cells details
-extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate {
+extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        hits?.count ?? 0
+        recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,18 +57,14 @@ extension RecipesListViewController: UITableViewDataSource, UITableViewDelegate 
                                                                 return UITableViewCell()
         }
         
-        guard let hits = hits else {
-            return UITableViewCell()
-        }
-        
-        recipeCell.imageForCell(recipeUrl: (hits[indexPath.row].recipe.image))
-        recipeCell.configure(recipe: hits[indexPath.row].recipe)
+        recipeCell.imageForCell(recipeUrl: (recipes[indexPath.row].image))
+        recipeCell.configure(recipe: recipes[indexPath.row])
         
         return recipeCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRecipe = hits?[indexPath.row].recipe
+        selectedRecipe = recipes[indexPath.row]
         selectedRecipeImage = (tableView.cellForRow(at: indexPath) as! RecipeTableViewCell).backgroundImageView.image
         performSegue(withIdentifier: segueIdentifier, sender: self)
     }

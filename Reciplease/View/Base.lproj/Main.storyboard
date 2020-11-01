@@ -55,18 +55,31 @@
         <!--Reciplease-->
         <scene sceneID="yVt-Hz-IS0">
             <objects>
-                <viewController id="F0Q-qE-vwu" sceneMemberID="viewController">
+                <viewController id="F0Q-qE-vwu" customClass="FavoritesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syD-w3-gGl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Lt-ER-WAk">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Lt-ER-WAk">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F0Q-qE-vwu" id="2qF-iS-cDw"/>
+                                    <outlet property="delegate" destination="F0Q-qE-vwu" id="CJU-Rl-9zs"/>
+                                </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no recipe in favorites. Please add them by touching the star button at top right corner in detail recipe view." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfS-nd-pL0">
+                                <rect key="frame" x="20" y="236.5" width="280" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nfS-nd-pL0" firstAttribute="leading" secondItem="31B-jZ-lYe" secondAttribute="leading" constant="20" id="H4E-04-OT2"/>
+                            <constraint firstItem="31B-jZ-lYe" firstAttribute="trailing" secondItem="nfS-nd-pL0" secondAttribute="trailing" constant="20" id="XzN-uI-Ey5"/>
+                            <constraint firstItem="nfS-nd-pL0" firstAttribute="centerY" secondItem="syD-w3-gGl" secondAttribute="centerY" id="aJ5-1B-Bge"/>
                             <constraint firstItem="7Lt-ER-WAk" firstAttribute="bottom" secondItem="31B-jZ-lYe" secondAttribute="bottom" id="iMQ-uh-Sax"/>
                             <constraint firstItem="7Lt-ER-WAk" firstAttribute="top" secondItem="31B-jZ-lYe" secondAttribute="top" id="pJj-76-9rd"/>
                             <constraint firstItem="7Lt-ER-WAk" firstAttribute="trailing" secondItem="31B-jZ-lYe" secondAttribute="trailing" id="qac-vg-2yQ"/>
@@ -76,6 +89,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="WrP-C3-4Vw"/>
                     <connections>
+                        <outlet property="favoritesRecipesTableView" destination="7Lt-ER-WAk" id="px0-Hx-saO"/>
+                        <outlet property="noFavoritesRecipesLabel" destination="nfS-nd-pL0" id="nob-M2-hE0"/>
                         <segue destination="OtG-gF-AbT" kind="show" identifier="segueToRecipeDetail" id="l00-k5-T2b"/>
                     </connections>
                 </viewController>
@@ -524,7 +539,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FmW-ey-id4"/>
+        <segue reference="l00-k5-T2b"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="favorite_star" width="24" height="23"/>

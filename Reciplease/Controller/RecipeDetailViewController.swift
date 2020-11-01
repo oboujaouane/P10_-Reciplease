@@ -22,7 +22,7 @@ class RecipeDetailViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
-    // MARK: - Property
+    // MARK: - Properties
     var recipe: Recipe?
     var recipeImage: UIImage?
     
