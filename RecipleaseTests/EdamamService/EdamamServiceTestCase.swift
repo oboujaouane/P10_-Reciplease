@@ -32,7 +32,6 @@ class EdamamServiceTestCase: XCTestCase {
         stub(everything, jsonData(FakeResponseData.recipesCorrectData))
         
         // When
-        let expectation = XCTestExpectation(description: "Alamofire get JSON response")
         EdamamService.shared.getRecipes(for: ingredients, callback: { success, recipes in
             //Then
             let q = "chicken"
@@ -48,9 +47,7 @@ class EdamamServiceTestCase: XCTestCase {
             XCTAssertEqual(to, recipes?.to)
             XCTAssertEqual(more, recipes?.more)
             XCTAssertEqual(count, recipes?.count)
-            expectation.fulfill()
         })
-        wait(for: [expectation], timeout: 0.1)
     }
     
     func testGetImageShouldPostSuccessCallbackIfNoErrorAndCorrectImageData() {
