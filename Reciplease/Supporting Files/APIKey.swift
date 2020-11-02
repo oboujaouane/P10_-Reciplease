@@ -7,6 +7,6 @@
 //
 
 struct APIKey {
-    static let EdamamRecipeSearchAppID = "REPLACE_WITH_YOUR_APP_ID"
-    static let EdamamRecipeSearchAppKey = "REPLACE_WITH_YOUR_APP_KEY"
+    static let EdamamRecipeSearchAppID = ADD_STRING_OF_YOUR_EDAMAM_APP_ID
+    static let EdamamRecipeSearchAppKey = ADD_STRING_OF_YOUR_EDAMAM_APP_KEY
 }
