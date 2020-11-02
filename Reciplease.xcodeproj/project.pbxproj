@@ -12,6 +12,7 @@
 		240B4950255040CE00ADC8C6 /* Hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B494F255040CE00ADC8C6 /* Hit.swift */; };
 		240B49522550477A00ADC8C6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B49512550477A00ADC8C6 /* Utils.swift */; };
 		240B49542550516E00ADC8C6 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B49532550516E00ADC8C6 /* CoreDataTestCase.swift */; };
+		240B49562550B5B700ADC8C6 /* UtilsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B49552550B5B700ADC8C6 /* UtilsTestCase.swift */; };
 		240BC359254565810035CEFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC358254565810035CEFD /* AppDelegate.swift */; };
 		240BC35D254565810035CEFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BC35C254565810035CEFD /* SearchViewController.swift */; };
 		240BC360254565810035CEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240BC35E254565810035CEFD /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		240B494F255040CE00ADC8C6 /* Hit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hit.swift; sourceTree = "<group>"; };
 		240B49512550477A00ADC8C6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		240B49532550516E00ADC8C6 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
+		240B49552550B5B700ADC8C6 /* UtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTestCase.swift; sourceTree = "<group>"; };
 		240BC355254565810035CEFD /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240BC358254565810035CEFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		240BC35C254565810035CEFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +158,8 @@
 			children = (
 				240BC374254565820035CEFD /* Info.plist */,
 				240B49532550516E00ADC8C6 /* CoreDataTestCase.swift */,
-				24DA5037254C7DBA0072A172 /* Edamam */,
+				24DA5037254C7DBA0072A172 /* EdamamService */,
+				240B49552550B5B700ADC8C6 /* UtilsTestCase.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -244,14 +247,14 @@
 			path = RecipeDetailCell;
 			sourceTree = "<group>";
 		};
-		24DA5037254C7DBA0072A172 /* Edamam */ = {
+		24DA5037254C7DBA0072A172 /* EdamamService */ = {
 			isa = PBXGroup;
 			children = (
 				240DD0092545A70900567208 /* EdamamRecipes.json */,
 				240B494C254F602400ADC8C6 /* FakeResponseData.swift */,
 				24DA5035254C7CEE0072A172 /* EdamamServiceTestCase.swift */,
 			);
-			path = Edamam;
+			path = EdamamService;
 			sourceTree = "<group>";
 		};
 		3711BD719413F56FFD88C173 /* Pods */ = {
@@ -504,6 +507,7 @@
 				24DA5036254C7CEE0072A172 /* EdamamServiceTestCase.swift in Sources */,
 				240B49542550516E00ADC8C6 /* CoreDataTestCase.swift in Sources */,
 				240B494D254F602400ADC8C6 /* FakeResponseData.swift in Sources */,
+				240B49562550B5B700ADC8C6 /* UtilsTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

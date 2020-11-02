@@ -8,22 +8,25 @@
 
 import UIKit
 
-func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
-    return (minutes / 60, (minutes % 60))
-}
-
-func configureTotalTimeLabel(_ recipe: Recipe, for label: UILabel) {
-    let totalTime = minutesToHoursMinutes(minutes: recipe.totalTime)
-    if totalTime.hours == 0 && totalTime.leftMinutes == 0 {
-        label.isHidden = true
-    } else {
-        label.isHidden = false
-        if totalTime.hours == 0 {
-            label.text = "\(totalTime.leftMinutes) minutes"
-        } else if totalTime.leftMinutes == 0 {
-            label.text = "\(totalTime.hours) hour"
+class Utils {
+    // MARK: - Internal functions
+    static func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
+        return (minutes / 60, (minutes % 60))
+    }
+    
+    static func getTotalTimeStringSentence(for totalTime: Int) -> (text: String, isHidden: Bool) {
+        let totalTime = minutesToHoursMinutes(minutes: totalTime)
+        if totalTime.hours == 0 && totalTime.leftMinutes == 0 {
+            return ("", true)
         } else {
-            label.text = "\(totalTime.hours)h\(totalTime.leftMinutes)"
+            if totalTime.hours == 0 {
+                return ("\(totalTime.leftMinutes) minutes", false)
+            } else if totalTime.leftMinutes == 0 {
+                return ("\(totalTime.hours) hour", false)
+            } else {
+                return ("\(totalTime.hours)h\(totalTime.leftMinutes)", false)
+            }
         }
     }
+    
 }

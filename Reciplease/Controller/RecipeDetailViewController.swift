@@ -48,7 +48,9 @@ class RecipeDetailViewController: UIViewController {
         favoriteButtonSetup()
         
         servingsLabel.text = "\(String(recipe.yield)) servings"
-        configureTotalTimeLabel(recipe, for: totalTimeLabel)
+        let labelConfigurationTuple = Utils.getTotalTimeStringSentence(for: recipe.totalTime)
+        totalTimeLabel.text = labelConfigurationTuple.text
+        totalTimeLabel.isHidden = labelConfigurationTuple.isHidden
         titleLabel.text = recipe.label
         recipeImageView.image = recipeImage
     }

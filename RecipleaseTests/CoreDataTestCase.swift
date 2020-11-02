@@ -31,8 +31,28 @@ class CoreDataTestCase: XCTestCase {
     }
     
     // MARK: - Tests functions
-    func testGivenFavoritesWhenAddFavoriteThenFavoriteIsAddedAndExists() {
+    func testGivenFavoriteAvailable_WhenAddFavorite_ThenFavoriteIsAddedAndExists() {
         RecipeEntity.addRecipeToFavorite(fakeRecipe)
         XCTAssertTrue(RecipeEntity.existBy("https://www.fakeurl.com/web-img/f08/f08811025f77fe47088dc50833259abd.jpg"))
+    }
+    
+    func testGivenFavoriteCreatedAndRemoved_WhenAddFavoriteTestAndDeleteIt_ThenFavoriteTestShouldNotExist() {
+        RecipeEntity.addRecipeToFavorite(fakeRecipe)
+        XCTAssertTrue(RecipeEntity.existBy("https://www.fakeurl.com/web-img/f08/f08811025f77fe47088dc50833259abd.jpg"))
+        RecipeEntity.deleteBy("https://www.fakeurl.com/web-img/f08/f08811025f77fe47088dc50833259abd.jpg")
+        XCTAssertFalse(RecipeEntity.existBy("https://www.fakeurl.com/web-img/f08/f08811025f77fe47088dc50833259abd.jpg"))
+    }
+    
+    func testGivenFavorites_WhenDeleteAllAndAddThreeRecipes_ThenFavoritesListReturnThreeWhenCount() {
+        RecipeEntity.deleteAll()
+        RecipeEntity.addRecipeToFavorite(fakeRecipe)
+        RecipeEntity.addRecipeToFavorite(fakeRecipe)
+        RecipeEntity.addRecipeToFavorite(fakeRecipe)
+        XCTAssertEqual(RecipeEntity.all().count, 3)
+    }
+    
+    func testGivenFavorites_WhenDeleteAll_ThenFavoritesListReturnedIsEmpty() {
+        RecipeEntity.deleteAll()
+        XCTAssertEqual(RecipeEntity.all().count, 0)
     }
 }

@@ -25,7 +25,9 @@ class RecipeTableViewCell: UITableViewCell {
             ingredientsLabel.text? += "\(ingredient), "
         }
         servingsLabel.text = "\(String(recipe.yield)) servings"
-        configureTotalTimeLabel(recipe, for: totalTimeLabel)
+        let labelConfigurationTuple = Utils.getTotalTimeStringSentence(for: recipe.totalTime)
+        totalTimeLabel.text = labelConfigurationTuple.text
+        totalTimeLabel.isHidden = labelConfigurationTuple.isHidden
     }
     
     /// Network call to load image for cells

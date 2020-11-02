@@ -13,7 +13,9 @@ class RecipeEntity: NSManagedObject {
     /// Retrieve all recipes stored in Core Data
     static func all() -> [Recipe] {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        guard let favoriteRecipes = try? AppDelegate.viewContext.fetch(request) else { return [] }
+        guard let favoriteRecipes = try? AppDelegate.viewContext.fetch(request) else {
+            return []
+        }
         var recipes = [Recipe]()
         for favorite in favoriteRecipes {
             if let name = favorite.name,
@@ -26,7 +28,7 @@ class RecipeEntity: NSManagedObject {
                                     yield: Int(favorite.yield),
                                     ingredientLines: (ingredientLines.split(separator: ",").map {
                                         String($0)
-                                     }),
+                                    }),
                                     ingredients: [],
                                     totalTime: Int(favorite.preparation_time))
                 recipes.append(recipe)
@@ -34,17 +36,17 @@ class RecipeEntity: NSManagedObject {
         }
         return recipes
     }
-          
+    
     /// Save recipe in Core Data
-     static func addRecipeToFavorite(_ recipe: Recipe) {
-            let favoriteRecipe = RecipeEntity(context: AppDelegate.viewContext)
-            favoriteRecipe.name = recipe.label
-            favoriteRecipe.preparation_time = Int16(recipe.totalTime)
-            favoriteRecipe.yield = Int16(recipe.yield)
-            favoriteRecipe.original_url = recipe.url
-            favoriteRecipe.image_url = recipe.image
-            favoriteRecipe.ingredient_lines = recipe.ingredientLines.joined(separator: ",")
-            saveContext()
+    static func addRecipeToFavorite(_ recipe: Recipe) {
+        let favoriteRecipe = RecipeEntity(context: AppDelegate.viewContext)
+        favoriteRecipe.name = recipe.label
+        favoriteRecipe.preparation_time = Int16(recipe.totalTime)
+        favoriteRecipe.yield = Int16(recipe.yield)
+        favoriteRecipe.original_url = recipe.url
+        favoriteRecipe.image_url = recipe.image
+        favoriteRecipe.ingredient_lines = recipe.ingredientLines.joined(separator: ",")
+        saveContext()
     }
     
     /// Check if data already exists in Core Data comparing url
@@ -56,11 +58,23 @@ class RecipeEntity: NSManagedObject {
         }
         return count > 0
     }
-
+    
     /// Delete RecipeEntity in Core Data. Use url in parameters to call the right data
     static func deleteBy(_ url: String) {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         request.predicate = NSPredicate(format: "image_url == %@", url)
+        if let favoriteRecipes = try? AppDelegate.viewContext.fetch(request) {
+            for recipe in favoriteRecipes {
+                AppDelegate.viewContext.delete(recipe)
+            }
+        }
+        saveContext()
+    }
+    
+    /// Delete all entities. Use url in parameters to call the right data
+    static func deleteAll() {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        request.predicate = NSPredicate(value: true)
         if let favoriteRecipes = try? AppDelegate.viewContext.fetch(request) {
             for recipe in favoriteRecipes {
                 AppDelegate.viewContext.delete(recipe)
