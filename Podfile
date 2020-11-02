@@ -12,6 +12,5 @@ target 'Reciplease' do
 end
 
 target 'RecipleaseTests' do
-  pod 'Alamofire', '~> 5.2'
   pod 'Mockingjay', '3.0.0-alpha.1'
 end

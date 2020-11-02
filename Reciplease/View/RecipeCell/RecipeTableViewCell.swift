@@ -16,6 +16,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet private weak var totalTimeLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    // MARK: - Internal functions
     /// Allow to display information in cells
     func configure(recipe: Recipe) {
         titleLabel.text = recipe.label
@@ -24,19 +25,7 @@ class RecipeTableViewCell: UITableViewCell {
             ingredientsLabel.text? += "\(ingredient), "
         }
         servingsLabel.text = "\(String(recipe.yield)) servings"
-        let totalTime = minutesToHoursMinutes(minutes: recipe.totalTime)
-        if totalTime.hours == 0 && totalTime.leftMinutes == 0 {
-            totalTimeLabel.isHidden = true
-        } else {
-            totalTimeLabel.isHidden = false
-            if totalTime.hours == 0 {
-                totalTimeLabel.text = "\(totalTime.leftMinutes) minutes"
-            } else if totalTime.leftMinutes == 0 {
-                totalTimeLabel.text = "\(totalTime.hours) hour"
-            } else {
-                totalTimeLabel.text = "\(totalTime.hours)h\(totalTime.leftMinutes)"
-            }
-        }
+        configureTotalTimeLabel(recipe, for: totalTimeLabel)
     }
     
     /// Network call to load image for cells
@@ -50,8 +39,4 @@ class RecipeTableViewCell: UITableViewCell {
             }
         })
     }
-}
-
-func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
-    return (minutes / 60, (minutes % 60))
 }

@@ -36,7 +36,7 @@ class RecipesListViewController: UIViewController {
         print("RecipesListViewController deinit called")
     }
     
-    // MARK: - Function
+    // MARK: - Private function
     private func setupTableView() {
         recipesTableView.rowHeight = 200
         recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),

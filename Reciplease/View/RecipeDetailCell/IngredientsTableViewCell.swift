@@ -12,6 +12,7 @@ class IngredientsTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet private weak var ingredientsLabel: UILabel!
 
+    // MARK: - Internal function
     func configure(_ ingredientLines: [String]) {
         ingredientsLabel.text = ""
         for ingredientLine in ingredientLines {

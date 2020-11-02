@@ -13,7 +13,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet private weak var favoritesRecipesTableView: UITableView!
     @IBOutlet private weak var noFavoritesRecipesLabel: UILabel!
 
-    // MARK: - Properties
+    // MARK: - Pivate properties
     private var recipes = RecipeEntity.all()
     private var selectedRecipe: Recipe?
     private var selectedRecipeImage: UIImage?

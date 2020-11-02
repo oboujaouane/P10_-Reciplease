@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  Reciplease
 //
 //  Created by ousama boujaouane on 25/10/2020.
@@ -41,7 +41,6 @@ class SearchViewController: UIViewController {
                     if success, let recipes = recipes {
                         if recipes.count > 0 {
                             self.recipes = recipes
-                            print(recipes) // TODO: Remove when tests end
                             self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                         } else {
                             self.presentAlert(title: "Aucune recette",

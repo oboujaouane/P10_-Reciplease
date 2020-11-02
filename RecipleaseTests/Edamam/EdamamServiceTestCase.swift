@@ -14,6 +14,7 @@ class EdamamServiceTestCase: XCTestCase {
     // MARK: - Property
     var ingredients = ["chicken"]
     
+    // MARK: - Tests functions
     func testGetRecipesShouldPostFailedCallbackIfError() {
         // Given
         stub(everything, http(500))
@@ -26,7 +27,7 @@ class EdamamServiceTestCase: XCTestCase {
             XCTAssertNil(recipes)
             expectation.fulfill()
         })
-        wait(for: [expectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.1)
     }
     
     func testGetRecipesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {

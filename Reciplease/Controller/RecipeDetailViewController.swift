@@ -16,7 +16,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet private weak var totalTimeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    // MARK: - Action
+    // MARK: - Actions
     @IBAction func addToFavorite() {
         saveRecipe()
     }
@@ -48,19 +48,7 @@ class RecipeDetailViewController: UIViewController {
         favoriteButtonSetup()
         
         servingsLabel.text = "\(String(recipe.yield)) servings"
-        let totalTime = minutesToHoursMinutes(minutes: recipe.totalTime)
-        if totalTime.hours == 0 && totalTime.leftMinutes == 0 {
-            totalTimeLabel.isHidden = true
-        } else {
-            totalTimeLabel.isHidden = false
-            if totalTime.hours == 0 {
-                totalTimeLabel.text = "\(totalTime.leftMinutes) minutes"
-            } else if totalTime.leftMinutes == 0 {
-                totalTimeLabel.text = "\(totalTime.hours) hour"
-            } else {
-                totalTimeLabel.text = "\(totalTime.hours)h\(totalTime.leftMinutes)"
-            }
-        }
+        configureTotalTimeLabel(recipe, for: totalTimeLabel)
         titleLabel.text = recipe.label
         recipeImageView.image = recipeImage
     }
