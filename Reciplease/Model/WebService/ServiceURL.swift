@@ -7,6 +7,5 @@
 //
 
 class Edamam {
-    // MARK: - Property
     static let endpoint = "https://api.edamam.com/search"
 }
