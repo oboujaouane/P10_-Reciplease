@@ -34,10 +34,10 @@ class SearchViewController: UIViewController {
         loader(shown: true)
         
         if !ingredientsList.isEmpty {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                EdamamService.shared.getRecipes(for: self.ingredientsList, callback: { [weak self]  success, recipes in
-                    guard let self = self else { return }
-                    
+            EdamamService.shared.getRecipes(for: self.ingredientsList, callback: { [weak self]  success, recipes in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     if success, let recipes = recipes {
                         if recipes.count > 0 {
                             self.recipes = recipes
@@ -53,8 +53,8 @@ class SearchViewController: UIViewController {
                                           buttonTitle: "OK")
                     }
                     self.loader(shown: false)
-                })
-            }
+                }
+            })
         } else {
             loader(shown: false)
             presentAlert(title: "Liste d'ingrédients vide",

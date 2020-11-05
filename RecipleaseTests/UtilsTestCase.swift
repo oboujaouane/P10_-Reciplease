@@ -37,4 +37,5 @@ class UtilsTestCase: XCTestCase {
         let totalTimeSentence = Utils.getTotalTimeStringSentence(for: 100)
         XCTAssertEqual(totalTimeSentence.text, "1h40")
     }
+    
 }

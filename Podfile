@@ -8,9 +8,11 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'Reciplease' do
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire', '5.3.0'
+  
+  target 'RecipleaseTests' do
+    pod 'Mockingjay', '3.0.0-alpha.1'
+  end
 end
 
-target 'RecipleaseTests' do
-  pod 'Mockingjay', '3.0.0-alpha.1'
-end
+

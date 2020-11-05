@@ -10,7 +10,7 @@ PODS:
   - URITemplate (3.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
+  - Alamofire (= 5.3.0)
   - Mockingjay (= 3.0.0-alpha.1)
 
 SPEC REPOS:
@@ -24,6 +24,6 @@ SPEC CHECKSUMS:
   Mockingjay: 0f7c5aa49c7f1b95621cee3c79b557141f5a225c
   URITemplate: 58e0d47f967006c5d59888af5356c4a8ed3b197d
 
-PODFILE CHECKSUM: 794377b127f3a495da328857aaf53b3e761b15de
+PODFILE CHECKSUM: 382d2dda392bbe8f040455a67593264e1b2696ab
 
 COCOAPODS: 1.5.3
